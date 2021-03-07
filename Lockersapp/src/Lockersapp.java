@@ -9,11 +9,88 @@ void getlist()
 {
 	System.out.println("************Using List files option******");
 	Scanner ky = new Scanner(System.in);
-	System.out.print("Enter the directory name:");
+	System.out.println("Enter the directory name:");
 	String dir=ky.next();
 	listfile(dir);
 }
- 
+
+void getadd()
+{
+	System.out.println("************Add a file option******");
+	Scanner ky = new Scanner(System.in);
+	System.out.println("Enter the directory name:");
+	String dir=ky.next();
+	System.out.println("Enter the file name:");
+	String fl=ky.next();
+	addfile(dir,fl);
+}
+
+void getdel()
+{
+	System.out.println("************Delete a file option******");
+	Scanner ky = new Scanner(System.in);
+	System.out.println("Enter the directory name:");
+	String dir=ky.next();
+	System.out.println("Enter the file name:");
+	String fl=ky.next();
+	delfile(dir,fl);
+}
+void getsearch()
+{
+	System.out.println("************Search a file option******");
+	Scanner ky = new Scanner(System.in);
+	System.out.println("Enter the directory name:");
+	String dir=ky.next();
+	System.out.println("Enter the file name:");
+	String fl=ky.next();
+	searchfile(dir,fl);
+}
+
+void addfile(String directory,String file)
+{
+	File f= new File(directory,file);
+	boolean a;
+	try {
+		a=f.createNewFile();
+		if(a)
+		{
+			System.out.println("File created Sucessfully");
+		}
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		System.out.println("File path Error");
+	}
+}
+
+void delfile(String directory,String file)
+{
+	File f= new File(directory,file);
+	boolean a;
+		a=f.delete();
+		if(a)
+		{
+			System.out.println("File Sucessfully deleted");
+		}else
+		{
+			System.out.println("File not found");
+		}
+	    
+}
+
+void searchfile(String directory,String file)
+{
+	File f= new File(directory,file);
+	boolean a;
+		a=f.exists();
+		if(a)
+		{
+			System.out.println("File Found in this directory");
+		}else
+		{
+			System.out.println("File not found in this directory");
+		}
+	    
+}
 
 void listfile(String directory)
 {
@@ -96,6 +173,39 @@ public class Lockersapp {
     	System.out.print("Please 1 to continue or press any number to go back to main menu:");
     	opt=ky.nextInt();
     	if(opt==1)
+    		continue;
+    		else 
+    			break;
+    	}
+    	while(opt==2)
+    	{
+    	fh.getadd();
+    	
+    	System.out.println("Please 2 to continue or press any number to go back to main menu:");
+    	opt=ky.nextInt();
+    	if(opt==2)
+    		continue;
+    		else 
+    			break;
+    	}
+    	while(opt==3)
+    	{
+    	fh.getdel();
+    	
+    	System.out.println("Please 3 to continue or press any number to go back to main menu:");
+    	opt=ky.nextInt();
+    	if(opt==2)
+    		continue;
+    		else 
+    			break;
+    	}
+    	while(opt==4)
+    	{
+    	fh.getsearch();
+    	
+    	System.out.println("Please 4 to continue or press any number to go back to main menu:");
+    	opt=ky.nextInt();
+    	if(opt==4)
     		continue;
     		else 
     			break;
