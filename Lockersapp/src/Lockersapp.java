@@ -1,10 +1,16 @@
 
+/**************************
+ * Author: Sarath Chandar S
+ * Program: LockersApp- prototype for file management tool
+ **************************/
+
+
 import java.io.*;
 import java.util.*;
 
 class Filehandling
 {
-
+/*call list file module*/
 void getlist()
 {
 	System.out.println("************Using List files option******");
@@ -13,7 +19,7 @@ void getlist()
 	String dir=ky.next();
 	listfile(dir);
 }
-
+/*call add file module*/
 void getadd()
 {
 	System.out.println("************Add a file option******");
@@ -24,7 +30,7 @@ void getadd()
 	String fl=ky.next();
 	addfile(dir,fl);
 }
-
+/*call delete file module*/
 void getdel()
 {
 	System.out.println("************Delete a file option******");
@@ -35,6 +41,7 @@ void getdel()
 	String fl=ky.next();
 	delfile(dir,fl);
 }
+/*call search file  module*/
 void getsearch()
 {
 	System.out.println("************Search a file option******");
@@ -46,6 +53,7 @@ void getsearch()
 	searchfile(dir,fl);
 }
 
+/*Add file module*/
 void addfile(String directory,String file)
 {
 	File f= new File(directory,file);
@@ -62,6 +70,7 @@ void addfile(String directory,String file)
 	}
 }
 
+/*Delete file module*/
 void delfile(String directory,String file)
 {
 	File f= new File(directory,file);
@@ -77,6 +86,7 @@ void delfile(String directory,String file)
 	    
 }
 
+/*Search file module*/
 void searchfile(String directory,String file)
 {
 	File f= new File(directory,file);
@@ -92,6 +102,7 @@ void searchfile(String directory,String file)
 	    
 }
 
+/*Search file module*/
 void listfile(String directory)
 {
 try
@@ -129,12 +140,15 @@ for (String fl: files) {
 }
 
 public class Lockersapp {
+	/*Welcome message*/
 	void welcome()
 	{
 	System.out.println("************Welcome to Gold Lockers app***********");	
 	System.out.println("***********Developer: Sarath Chandar.S************");
 
 	}
+	
+	/*Main Menu*/
 	void optmsg()
 	{
 	System.out.println("Enter the following options:");
@@ -194,7 +208,7 @@ public class Lockersapp {
     	
     	System.out.println("Please 3 to continue or press any number to go back to main menu:");
     	opt=ky.nextInt();
-    	if(opt==2)
+    	if(opt==3)
     		continue;
     		else 
     			break;
